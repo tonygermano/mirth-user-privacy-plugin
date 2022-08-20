@@ -1,0 +1,7 @@
+.idea/
+target/
+*.iml
+*.zip
+*.json
+plugin.xml
+*.jar

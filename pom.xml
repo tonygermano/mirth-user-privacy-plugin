@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2021 Kaur Palang
+  Copyright 2022 Tony Germano
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+   
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.tonygermano</groupId>
+    <artifactId>user-privacy-plugin</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>server</module>
+        <module>distribution</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <mirth.version>4.0.1</mirth.version>
+
+        <maven-processor-plugin.version>4.5</maven-processor-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+        <maven-jarsigner-plugin.version>3.0.0</maven-jarsigner-plugin.version>
+        <mirth-plugin-maven-plugin.version>1.0.2-SNAPSHOT</mirth-plugin-maven-plugin.version>
+        <lombok.version>1.18.22</lombok.version>
+        <miglayout.version>3.7.4</miglayout.version>
+
+        <!-- Where should annotation processor generate aggregation file -->
+        <processor.aggregator.path>distribution/aggregated.json</processor.aggregator.path>
+
+        <!-- Plugin details -->
+        <plugin.path>userprivacy</plugin.path>
+        <plugin.name>User Privacy</plugin.name>
+        <plugin.url>https://github.com/tonygermano/mirth-user-privacy-plugin</plugin.url>
+        <plugin.author>Tony Germano</plugin.author>
+        <plugin.version>1.0</plugin.version>
+        <plugin.description>This plugin prevents the sending of statistics and Personal Data to NextGen servers.</plugin.description>
+        <plugin.mirthVersion>4.1.0</plugin.mirthVersion>
+        <plugin.archive.name>userprivacy</plugin.archive.name>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>https://maven.kaurpalang.com/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Helper plugin to handle Mirth plugin specific tasks. -->
+        <dependency>
+            <groupId>com.kaurpalang</groupId>
+            <artifactId>mirth-plugin-maven-plugin</artifactId>
+            <version>${mirth-plugin-maven-plugin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mirth.connect</groupId>
+            <artifactId>mirth-server</artifactId>
+            <version>${mirth.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mirth.connect</groupId>
+            <artifactId>mirth-client-core</artifactId>
+            <version>${mirth.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- Specify naming pattern for submodules. For example pluginname-client.jar -->
+        <finalName>${project.parent.artifactId}-${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <version>${maven-processor-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+
+                        <configuration>
+                            <!-- Specify annotation processor class -->
+                            <processors>
+                                <processor>com.kaurpalang.mirth.annotationsplugin.processor.MirthPluginProcessor</processor>
+                            </processors>
+
+                            <options>
+                                <aggregator.file>${processor.aggregator.path}</aggregator.file>
+                            </options>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
