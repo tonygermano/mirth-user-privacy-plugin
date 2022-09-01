@@ -18,16 +18,19 @@
 
 package io.github.tonygermano.userprivacy.server;
 
-import java.util.Map;
-import java.util.Properties;
-
 import com.kaurpalang.mirth.annotationsplugin.annotation.ServerClass;
 import com.mirth.connect.model.ExtensionPermission;
 import com.mirth.connect.plugins.ServicePlugin;
 import com.mirth.connect.server.controllers.ControllerFactory;
+import java.util.Map;
+import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @ServerClass
 public class UserPrivacyServicePlugin implements ServicePlugin {
+
+    private static final Logger logger = LogManager.getLogger(UserPrivacyServicePlugin.class);
 
     @Override
     public String getPluginPointName() {
@@ -37,11 +40,12 @@ public class UserPrivacyServicePlugin implements ServicePlugin {
     @Override
     public void start() {
         try {
+            logger.debug("Starting up the User Privacy plugin");
             ControllerFactory controllerFactory = ControllerFactory.getFactory();
             controllerFactory.createUserController().setUserPreference(1, "firstlogin", "false");
             controllerFactory.createConfigurationController().saveProperty("core", "stats.enabled", "0");
         } catch (Exception e) {
-            System.out.println(e);
+            logger.error("Error using mirth controllers", e);
         }
     }
 
