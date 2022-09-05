@@ -53,10 +53,10 @@
         <plugin.name>User Privacy</plugin.name>
         <plugin.url>https://github.com/tonygermano/mirth-user-privacy-plugin</plugin.url>
         <plugin.author>Tony Germano</plugin.author>
-        <plugin.version>1.0</plugin.version>
+        <plugin.version>${project.version}</plugin.version>
         <plugin.description>This plugin prevents the sending of statistics and Personal Data to NextGen servers.</plugin.description>
         <plugin.mirthVersion>4.1.0</plugin.mirthVersion>
-        <plugin.archive.name>userprivacy</plugin.archive.name>
+        <plugin.archive.name>userprivacy-${project.version}</plugin.archive.name>
     </properties>
 
     <repositories>
