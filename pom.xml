@@ -55,7 +55,7 @@
         <plugin.author>Tony Germano</plugin.author>
         <plugin.version>${project.version}</plugin.version>
         <plugin.description>This plugin prevents the sending of statistics and Personal Data to NextGen servers.</plugin.description>
-        <plugin.mirthVersion>4.2.0</plugin.mirthVersion>
+        <plugin.mirthVersion>4.2.0,4.1.0</plugin.mirthVersion>
         <plugin.archive.name>userprivacy-${project.version}</plugin.archive.name>
     </properties>
 
