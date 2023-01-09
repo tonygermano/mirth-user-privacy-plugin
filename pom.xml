@@ -23,7 +23,7 @@
 
     <groupId>io.github.tonygermano</groupId>
     <artifactId>user-privacy-plugin</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -36,7 +36,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <mirth.version>4.0.1</mirth.version>
+        <mirth.version>4.2.0</mirth.version>
 
         <maven-processor-plugin.version>4.5</maven-processor-plugin.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
@@ -55,7 +55,7 @@
         <plugin.author>Tony Germano</plugin.author>
         <plugin.version>${project.version}</plugin.version>
         <plugin.description>This plugin prevents the sending of statistics and Personal Data to NextGen servers.</plugin.description>
-        <plugin.mirthVersion>4.1.0</plugin.mirthVersion>
+        <plugin.mirthVersion>4.2.0</plugin.mirthVersion>
         <plugin.archive.name>userprivacy-${project.version}</plugin.archive.name>
     </properties>
 
