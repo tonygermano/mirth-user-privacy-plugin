@@ -44,7 +44,7 @@
         <maven-processor-plugin.version>4.5</maven-processor-plugin.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-jarsigner-plugin.version>3.0.0</maven-jarsigner-plugin.version>
-        <mirth-plugin-maven-plugin.version>1.0.2-SNAPSHOT</mirth-plugin-maven-plugin.version>
+        <mirth-plugin-maven-plugin.version>2.0.1</mirth-plugin-maven-plugin.version>
         <lombok.version>1.18.22</lombok.version>
         <miglayout.version>3.7.4</miglayout.version>
 
@@ -64,10 +64,21 @@
 
     <repositories>
         <repository>
-            <id>nexus</id>
-            <url>https://maven.kaurpalang.com/repository/maven-public/</url>
+            <id>repsy-default</id>
+            <url>https://repo.repsy.io/mvn/kpalang/default</url>
+        </repository>
+        <repository>
+            <id>repsy-mirthconnect</id>
+            <url>https://repo.repsy.io/mvn/kpalang/mirthconnect</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repsy-default</id>
+            <url>https://repo.repsy.io/mvn/kpalang/default</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <!-- Helper plugin to handle Mirth plugin specific tasks. -->
@@ -109,7 +120,6 @@
             <version>2.17.2</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
