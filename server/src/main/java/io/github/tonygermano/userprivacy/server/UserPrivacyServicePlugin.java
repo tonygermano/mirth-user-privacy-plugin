@@ -18,16 +18,17 @@
 
 package io.github.tonygermano.userprivacy.server;
 
-import com.kaurpalang.mirth.annotationsplugin.annotation.ServerClass;
+import com.kaurpalang.mirth.annotationsplugin.annotation.MirthServerClass;
 import com.mirth.connect.model.ExtensionPermission;
 import com.mirth.connect.plugins.ServicePlugin;
 import com.mirth.connect.server.controllers.ControllerFactory;
-import java.util.Map;
-import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@ServerClass
+import java.util.Map;
+import java.util.Properties;
+
+@MirthServerClass
 public class UserPrivacyServicePlugin implements ServicePlugin {
 
     private static final Logger logger = LogManager.getLogger(UserPrivacyServicePlugin.class);
