@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.github.tonygermano</groupId>
         <artifactId>user-privacy-plugin</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>server</artifactId>
