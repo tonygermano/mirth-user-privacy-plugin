@@ -15,7 +15,7 @@ time login screen. While previous versions of Mirth allowed you to skip registra
 out the form, as of version 4.1.0 it will not let you proceed without filling out the form and
 submitting it to NextGen. Although there is a checkbox to opt-out of receiving email communication
 from NextGen, the application still will not allow you past this form without every field populated.
-This is an immense burdon for developers during testing when new server instances are frequently
+This is an immense burden for developers during testing when new server instances are frequently
 created and thrown away. Ironically, this intrusive behavior is touted as a
 [new feature](https://github.com/nextgenhealthcare/connect/wiki/4.1.0---What's-New#welcome-to-mirth-connect).
 
