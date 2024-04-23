@@ -21,12 +21,12 @@
 
     <groupId>io.github.tonygermano</groupId>
     <artifactId>user-privacy-plugin</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>pom</packaging>
 
     <scm>
         <developerConnection>scm:git:https://github.com/tonygermano/mirth-user-privacy-plugin.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v1.0.3</tag>
   </scm>
 
     <modules>
