@@ -1,5 +1,8 @@
 # A Mirth Connect Privacy Plugin
 
+> NOTE: No updates to this plugin are planned since NextGen has announced that Mirth
+> Connect 4.6 is no longer available under an open source license. 
+
 This plugin for [Mirth Connect](https://github.com/nextgenhealthcare/connect) performs two
 functions to prevent exposing details of your server and
 [Personal Data](https://en.wikipedia.org/wiki/Personal_data) to NextGen Healthcare.
